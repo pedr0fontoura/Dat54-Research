@@ -8,8 +8,8 @@ UnkShort2 - ushort value - Decay - duration of decay in ms. Decay style pairs up
 UnkShort3 - ushort value - DecayVariance - affects the duration of the decay.
 UnkByte0 - byte value - Sustain - level of sustain as a percentage from 0-100%.
 UnkByte1 - byte value - SustainVariance -  affects the sustain level.
-UnkInt0 - integer value - Duration - duration of sustain in ms.
-UnkShort4 - ushort value - DurationVariance - affects the duration.
+UnkInt0 - integer value - Hold - duration of sustain in ms.
+UnkShort4 - ushort value - HoldVariance - affects the hold duration.
 UnkInt1 - integer value - Release - duration of release in ms. Release style pairs up to CurvesUnkHash2.
 UnkInt2 - integer value - ReleaseVariance - affects the duration of the release.
 CurvesUnkHash0 - metahash - curves.dat16 entry. Attack curve.
