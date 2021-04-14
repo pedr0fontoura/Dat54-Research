@@ -1,0 +1,60 @@
+The EnvelopeSound (_env, _envelope, _one_shot) type is used to apply an ADSR (Attack, Decay, Sustain, Release) style envelope to a sound. It is often used to play a sound for a specific duration.
+
+Fields:
+
+UnkShort0 - ushort value - Attack - duration of attack in ms. Attack style pairs up to CurvesUnkHash0.
+UnkShort1 - ushort value - AttackVariance - affects the duration of the attack.
+UnkShort2 - ushort value - Decay - duration of decay in ms. Decay style pairs up to CurvesUnkHash1.
+UnkShort3 - ushort value - DecayVariance - affects the duration of the decay.
+UnkByte0 - byte value - Sustain - level of sustain as a percentage from 0-100%.
+UnkByte1 - byte value - SustainVariance -  affects the sustain level.
+UnkInt0 - integer value - Duration - duration of sustain in ms.
+UnkShort4 - ushort value - DurationVariance - affects the duration.
+UnkInt1 - integer value - Release - duration of release in ms. Release style pairs up to CurvesUnkHash2.
+UnkInt2 - integer value - ReleaseVariance - affects the duration of the release.
+CurvesUnkHash0 - metahash - curves.dat16 entry. Attack curve.
+CurvesUnkHash1 - metahash - curves.dat16 entry. Decay curve. //decaying_exponential
+CurvesUnkHash2 - metahash - curves.dat16 entry. Release curve. //default_release_curve
+ParameterHash0 - metahash - Parameters.
+ParameterHash1 - metahash - Parameters.
+ParameterHash2 - metahash - Parameters.
+ParameterHash3 - metahash - Parameters.
+ParameterHash4 - metahash - Parameters.
+AudioHash - metahash - child sound.
+UnkInt3 - integer value - Unknown.  //0 - 5; parameters? 5 always paired wth ParameterHash5
+ParameterHash5 - metahash - Parameters.
+UnkFloat0 - float value - Unknown. //-100-1; percentage?
+UnkFloat1 - float value - Unknown. //-1-100; percentage?
+
+Example:
+"truck_horn" will have 900 ms of attack time (volume from 0 to 100%) before playing for a further 200 ms.
+<Item type="EnvelopeSound">
+ <Name>truck_horn_blast_env</Name>
+ <Header>
+  <Flags value="0x00000001" />
+  <Flags2 value="0xAAA1AAAA" />
+ </Header>
+ <UnkShort0 value="900" />
+ <UnkShort1 value="0" />
+ <UnkShort2 value="0" />
+ <UnkShort3 value="0" />
+ <UnkByte0 value="0" />
+ <UnkByte1 value="0" />
+ <UnkInt0 value="0" />
+ <UnkShort4 value="0" />
+ <UnkInt1 value="200" />
+ <UnkInt2 value="0" />
+ <CurvesUnkHash0>linear_rise</CurvesUnkHash0>
+ <CurvesUnkHash1>linear_fall</CurvesUnkHash1>
+ <CurvesUnkHash2>linear_fall</CurvesUnkHash2>
+ <ParameterHash0 />
+ <ParameterHash1 />
+ <ParameterHash2 />
+ <ParameterHash3 />
+ <ParameterHash4 />
+ <AudioHash>truck_horn</AudioHash>
+ <UnkInt3 value="0" />
+ <ParameterHash5 />
+ <UnkFloat0 value="-100" />
+ <UnkFloat1 value="0" />
+</Item>
