@@ -1,0 +1,22 @@
+The SpeechSound is used to play randomised sounds directly from the .awc file. Typically used for, but not limited to, speech, ambience, pain and oneshot sounds.
+
+Fields:
+
+UnkInt0
+UnkInt1
+VoiceDataHash
+SpeechName
+
+Example:
+
+  <Item type="SpeechSound">
+   <Name>vb_female_01</Name>
+   <Header>
+    <Flags value="0x00000004" />
+    <Unk02 value="65236" />
+   </Header>
+   <UnkInt0 value="1" />
+   <UnkInt1 value="1" />
+   <VoiceDataHash>vb_female_01</VoiceDataHash>
+   <SpeechName>VB_ONESHOT</SpeechName>
+  </Item>
