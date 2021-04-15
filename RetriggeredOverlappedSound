@@ -4,15 +4,15 @@ The retrigger's speed and delay can be modified, and how many times it retrigger
 
 Fields:
 
-UnkShort0 - ushort value - Retriggers - The number of times the retrigger occurs. 
-UnkShort1 - ushort value - Unknown //
-UnkShort2 - ushort value - Delay - the delay of the retrigger in milliseconds. This defines how many milliseconds into play the sound will retrigger. This applies to every retrigger occurance.
-UnkShort3 - ushort value - DelayVariance - affects the delay.
+UnkShort0 - ushort value - Retriggers - The number of times the retrigger occurs. This includes the StartSound, RetriggerSound and TailSound.
+UnkShort1 - ushort value - RetriggerVariance - affects tje number of retriggers.
+UnkShort2 - ushort value - Overlap - the duration to which the sounds must overlap. If this value matches the full duration of the sound, there will be no overlap. 
+UnkShort3 - ushort value - OverlapVariance - affects the overlap.
 ParameterHash0 - metahash - Parameters.
 ParameterHash1 - metahash - Parameters.
-AudioHash0 - metahash - child sound 1. //is this the "start" sound that is played on the first instance?
-AudioHash1 - metahash - child sound 2. //the actual retriggering sound
-AudioHash2 - metahash - child sound 3. //is this the "tail" sound that is played on the last instance? 
+AudioHash0 - metahash - StartSound - the sound that plays first.
+AudioHash1 - metahash - RetriggerSound - the sound that is retriggered.
+AudioHash2 - metahash - TailSound - the sound that plays at the end.
 
 
 Example:
