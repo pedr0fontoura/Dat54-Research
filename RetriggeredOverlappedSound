@@ -1,0 +1,39 @@
+The RetriggeredOverlappedSound (_rt, _rtol) type is used to essentially replay a sound part-way through its play, rather than end-to-end. 
+
+The retrigger's speed and delay can be modified, and how many times it retriggers can also be defined. 
+
+Fields:
+
+UnkShort0 - ushort value - Retriggers - The number of times the retrigger occurs. 
+UnkShort1 - ushort value - Unknown //
+UnkShort2 - ushort value - Delay - the delay of the retrigger in milliseconds. This defines how many milliseconds into play the sound will retrigger. This applies to every retrigger occurance.
+UnkShort3 - ushort value - DelayVariance - affects the delay.
+ParameterHash0 - metahash - Parameters.
+ParameterHash1 - metahash - Parameters.
+AudioHash0 - metahash - child sound 1. //is this the "start" sound that is played on the first instance?
+AudioHash1 - metahash - child sound 2. //the actual retriggering sound
+AudioHash2 - metahash - child sound 3. //is this the "tail" sound that is played on the last instance? 
+
+
+Example:
+
+  <Item type="RetriggeredOverlappedSound">
+   <Name>slamtruck_reverse_beeps</Name>
+   <Header>
+    <Flags value="0x1800C004" />
+    <Volume value="65336" />
+    <DopplerFactor value="10" />
+    <Category>vehicles_horns</Category>
+    <Unk22 value="25" />
+    <Unk23 value="50" />
+   </Header>
+   <UnkShort0 value="65535" />
+   <UnkShort1 value="0" />
+   <UnkShort2 value="1000" />
+   <UnkShort3 value="0" />
+   <ParameterHash0 />
+   <ParameterHash1 />
+   <AudioHash0 />
+   <AudioHash1>slamtruck_reverse_beep_synth_env</AudioHash1>
+   <AudioHash2 />
+  </Item>
