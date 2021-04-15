@@ -1,13 +1,15 @@
-The RetriggeredOverlappedSound (_rt, _rtol) type is used to essentially replay a sound part-way through its play, rather than end-to-end. 
+The RetriggeredOverlappedSound (_rt, _rtol) type is used to replay sounds a number of times. 
 
-The retrigger's speed and delay can be modified, and how many times it retriggers can also be defined. 
+Overlap duration can be defined, affecting the duration at which the sound plays before it is replayed again. 
+
+Both a "start" and "tail" sound can also be defined, which play only once, on the first and last instance, respectively. This affects the number of times the retriggered sound itself is played.
 
 Fields:
 
-UnkShort0 - ushort value - Retriggers - The number of times the retrigger occurs. This includes the StartSound, RetriggerSound and TailSound.
-UnkShort1 - ushort value - RetriggerVariance - affects the number of retriggers.
-UnkShort2 - ushort value - Overlap - the duration to which the sounds must overlap. If this value matches the full duration of the sound, there will be no overlap. 
-UnkShort3 - ushort value - OverlapVariance - affects the overlap.
+UnkShort0 - ushort value - Retriggers - The number of times the retrigger occurs. This includes the StartSound, RetriggerSound and TailSound. 
+UnkShort1 - ushort value - RetriggerVariance - affects the number of retriggers. 
+UnkShort2 - ushort value - Overlap - the duration to which the sounds must overlap. If this value matches the full duration of the sound, there will be no overlap. If this value exceeds the full duration of the sound, there will be delay. If this value is set to 0, the retriggers will be played on top of each other, creating amplitude. This will affect all retriggers.
+UnkShort3 - ushort value - OverlapVariance - affects the overlap. This will affect all retriggers by the same amount of variance.
 ParameterHash0 - metahash - Parameters.
 ParameterHash1 - metahash - Parameters.
 AudioHash0 - metahash - StartSound - the sound that plays first.
