@@ -1,1 +1,14 @@
 The TwinLoopSound (_tl, _tls) block is used to loop-play two sounds together. 
+
+Fields:
+
+UnkShort0
+UnkShort1
+UnkShort2
+UnkShort3
+UnkHash
+ParameterHash0
+ParameterHash1
+ParameterHash2
+ParameterHash3
+AudioTracks - list of audio tracks.
