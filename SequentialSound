@@ -1,0 +1,25 @@
+The SequentialSound (_seq, _sq) type is similar in structure to the MultitrackSound. It is used to play one sound item immediately after another. 
+
+The data contains a list of AudioTracks which refer to other sound entries. The type assumes that each subsequent sound is to be played immediately after the previous sound. 
+
+Delay can be achived by using other entry types on the individual items rather than on the SequentialSound entry itself.
+
+Fields:
+
+AudioTracks - item list of child sounds. //could name "Sequence"?
+
+Example:
+
+Below, "note_2" will play immediately after "note_1" when "notes" is played.
+
+  <Item type="SequentialSound">
+   <Name>notes</Name>
+   <Header>
+    <Flags value="0x00000001" />
+    <Flags2 value="0xAAA8AAAA" />
+   </Header>
+   <AudioTracks>
+    <Item>note_1</Item>
+    <Item>note_2</Item>
+   </AudioTracks>
+  </Item>
