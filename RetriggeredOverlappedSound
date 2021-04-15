@@ -1,6 +1,6 @@
 The RetriggeredOverlappedSound (_rt, _rtol) type is used to replay sounds a number of times. 
 
-Overlap duration can be defined, affecting the duration at which the sound plays before it is replayed again. 
+Delay duration can be defined, affecting the duration at which the sound plays before it is replayed again. 
 
 Both a "start" and "tail" sound can also be defined, which play only once, on the first and last instance, respectively. This affects the number of times the retriggered sound itself is played.
 
