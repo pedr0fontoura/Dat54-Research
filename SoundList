@@ -1,7 +1,5 @@
 The SoundList (_list) type is a list of sounds, from which one is chosen, when played, in order. SoundLists can only be called for through game.dat151.
 
-The data contains a list of items which refer to each script name and sound. Script names are pre-defined.
-
 Fields:
 
 UnkShort - ushort value - Unknown. //some kind of randomization?
@@ -25,7 +23,3 @@ Example:
     <Item>horn_06</Item>
    </Items>
   </Item>
-
-Script example:
-
-	AUDIO::PLAY_SOUND_FRONTEND(-1, "STOPSOUND", "HANDLERFORKSDEFAULT", true);
