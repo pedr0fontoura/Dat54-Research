@@ -1,0 +1,33 @@
+The IfSound (_if) type is used to switch between two child sounds depending on a condition or condition change.
+
+It assumes that the condition is met whenever, rather than when finished. Under the right conditions, this could be when switching between modes, depending on the parameter hash used. Unlike the OnStopSound, the IfSound can have a paramter (condition) applied directly.
+
+
+Fields:
+
+AudioHash1 - metahash - ConditionTrue  - child sound 1.
+AudioHash2 - metahash - ConditionFalse - child sound 2.
+ParamterHash1 - metahash - Condition - Parameter for child sound 1.
+ParamterHash2 - metahash - Parameters // unknown?
+UnkByte - byte value - Unknown.
+UnkFloat - float value - Variable for parameters //such as Mass in kg, speed in m/s, etc?
+
+Example:
+
+Below, "dlc_h4_combat_shotgun_player_fpmech" assesses whether to play child sound 1 or child sound 2. The condition (hash_378A1D92) is that the player is in first person mode; child sound 1 plays if the condition is true, and child sound 2 plays if the condition is false.
+
+  <Item type="IfSound">
+   <Name>dlc_h4_combat_shotgun_player_fpmech</Name>
+   <Header>
+    <Flags value="0x00000141" />
+    <Flags2 value="0xAAA8AAAA" />
+    <Pan value="0" />
+    <PreDelay value="30" />
+   </Header>
+   <AudioHash1>dlc_h4_combat_shotgun_mech_fp_mt</AudioHash1>
+   <AudioHash2>dlc_h4_combat_shotgun_mech_mt</AudioHash2>
+   <ParameterHash1>hash_378A1D92</ParameterHash1>
+   <UnkByte value="4" />
+   <UnkFloat value="1" />
+   <ParameterHash2 />
+  </Item>
