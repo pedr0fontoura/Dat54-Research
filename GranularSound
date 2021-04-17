@@ -3,7 +3,9 @@ The GranularSound type is used for granular engine sounds defined in VehicleEngi
 It defines the engine & exhaust's acceleration, deceleration and idle sounds, as well as their individual volumes and the pitch vector for acceleration and deceleration.
 
 Engine sounds are played from the engine bone of the vehicle model, while exhaust sounds are played from the exhaust bones. These can be coned out with individual controls for the volume.
+
 Fields:
+
 Wave1 - EngineAccel - engine acceleration sound and .awc location.
 Wave2 - ExhaustAccel - exhaust acceleration sound and .awc location.
 Wave3 - EngineDecel - engine deceleration sound and .awc location.
@@ -31,3 +33,95 @@ UnkShort4 - ushort value - EngineIdleVolume - volume of engine idle entry.
 UnkShort5 - ushort value - ExhaustIdleVolume - volume of exhaust idle entry.
 TrackName - associates the NPC GranularSound entry with the non-NPC GranularSound entry.
 UnkVecData - vector data - PitchVector - the minimum and maximum pitch points for the accel/decel (1st line) and idle (2nd line) entries.
+
+Example:
+
+  <Item type="GranularSound">
+   <Name>hei4_suv01_engine_accel</Name>
+   <Header>
+    <Flags value="0x00008011" />
+    <Flags2 value="0x9555AAAA" />
+    <Pitch value="65436" />
+    <Category>vehicles_engines</Category>
+   </Header>
+   <WaveSlotIndex value="0" />
+   <Wave1>
+    <ContainerName>dlc_hei4/hei4_suv01</ContainerName>
+    <FileName>engine_accel</FileName>
+   </Wave1>
+   <Wave2>
+    <ContainerName>dlc_hei4/hei4_suv01</ContainerName>
+    <FileName>exhaust_accel</FileName>
+   </Wave2>
+   <Wave3>
+    <ContainerName>dlc_hei4/hei4_suv01</ContainerName>
+    <FileName>engine_decel</FileName>
+   </Wave3>
+   <Wave4>
+    <ContainerName>dlc_hei4/hei4_suv01</ContainerName>
+    <FileName>exhaust_decel</FileName>
+   </Wave4>
+   <Wave5>
+    <ContainerName>dlc_hei4/hei4_suv01</ContainerName>
+    <FileName>engine_idle</FileName>
+   </Wave5>
+   <Wave6>
+    <ContainerName>dlc_hei4/hei4_suv01</ContainerName>
+    <FileName>exhaust_idle</FileName>
+   </Wave6>
+   <DataItem1>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem1>
+   <DataItem2>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem2>
+   <DataItem3>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem3>
+   <DataItem4>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem4>
+   <DataItem5>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem5>
+   <DataItem6>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem6>
+   <UnkFloat0 value="0.05" />
+   <UnkFloat1 value="0.15" />
+   <UnkShort0 value="-400" />
+   <UnkShort1 value="-400" />
+   <UnkShort2 value="-800" />
+   <UnkShort3 value="0" />
+   <UnkShort4 value="-500" />
+   <UnkShort5 value="0" />
+   <TrackName />
+   <UnkVecData>
+    12, 45.54
+    13.02, 13.02
+   </UnkVecData>
+  </Item>
