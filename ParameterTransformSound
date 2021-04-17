@@ -1,0 +1,88 @@
+The ParameterTransformSound (_param, _pts, _pu, _mdr) type is used to manipulate a sounds' play, using vectors and other parameter modifiers.
+
+They use vectors to manipulate a sound in a variety of ways, including volume, pitch and velocity. PTS types can host multiple different graphs at once, as well as multiple line plots on one graph, allowing for huge amounts of manipulation running at once.
+
+Fields:
+
+AudioHash - metahash - child sound.
+# PTS graphs
+  ParameterHash - metahash - PTS type (speed, velocity, soundacceleration, ctrl, etc)
+  UnkFloat0 = float value - InputRangeMin - determines the X-axis range for each PTS graph
+  UnkFloat1 = float value - InputRangeMax - determines the X-axis range for each PTS graph
+# NestedData items - Transforms
+  UnkInt =  integer value - Type - Variable type 
+        0 = Volume
+        1 = Pitch
+        2 = ?
+        3 = ?
+        4 = ?
+        5 = ?
+        6 = HPF
+        7 = ?
+  ParameterHash - metahash - Parameter - Variable type override //overrides UnkInt if already defined.
+  UnkFloat0 = float value - SmoothRate - Unknown //-1 = None
+  UnkFloat1 = float value - OutputRangeMin - Unknown
+  UnkFloat2 = float value - OutputRangeMax - Unknown
+  Vectors - vector data - plotting points on the graph //0.3, 0.5 = 0.3 on X axis (input), 0.5 on Y axis
+  
+  Example:
+  
+  Below, "crane_strain_test_vb_kinetic_pts" transforms the sound's volume (Item 1, UnkInt = 0) and pitch (Item 2, UnkInt = 1) in graph 1, according to the acceleration of the sound entity (soundacceleration). It also transforms the sound's volume (Item 1, UnkInt0) according to the velocity of the sound entity in the Z axis (sound.velocityz) in graph 2. The Vector plotting ensures that both the sound's volume and pitch increases from 0% to 100% as the entity accelerates //from 0 to 0.1 m/s?
+  
+  <Item type="ParameterTransformSound">
+   <Name>crane_strain_test_vb_kinetic_pts</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <AudioHash>crane_strain_vars_pts_fluc</AudioHash>
+   <Items>
+    <Item>
+     <ParameterHash>soundacceleration</ParameterHash>
+     <UnkFloat0 value="0" />
+     <UnkFloat1 value="0.1" />
+     <NestedData>
+      <Item>
+       <UnkFloat0 value="2" />
+       <UnkInt value="0" />
+       <ParameterHash />
+       <UnkFloat1 value="1E-05" />
+       <UnkFloat2 value="1" />
+       <Vectors>
+        0.1066667, 0
+        0.3683334, 0.5525454
+        1, 1
+       </Vectors>
+      </Item>
+      <Item>
+       <UnkFloat0 value="2" />
+       <UnkInt value="1" />
+       <ParameterHash />
+       <UnkFloat1 value="1" />
+       <UnkFloat2 value="1.122462" />
+       <Vectors>
+        0, 0
+        1, 1
+       </Vectors>
+      </Item>
+     </NestedData>
+    </Item>
+    <Item>
+     <ParameterHash>sound.velocityz</ParameterHash>
+     <UnkFloat0 value="-1" />
+     <UnkFloat1 value="1" />
+     <NestedData>
+      <Item>
+       <UnkFloat0 value="1" />
+       <UnkInt value="0" />
+       <ParameterHash />
+       <UnkFloat1 value="1E-05" />
+       <UnkFloat2 value="1" />
+       <Vectors>
+        0, 0
+        1, 1
+       </Vectors>
+      </Item>
+     </NestedData>
+    </Item>
+   </Items>
+  </Item>
