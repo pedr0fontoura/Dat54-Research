@@ -2,8 +2,8 @@ The LoopingSound (_lp, _loop) type is used to replay a sound continuously under 
 
 Fields:
 
-UnkShort0 - ushort value - "Loops" - Number of times to loop. 
-UnkShort1 - ushort value - Unknown.
+UnkShort0 - ushort value - "LoopCount" - Number of times to loop. 
+UnkShort1 - ushort value - "LoopCountVariance" - affects number of loops.
 UnkShort2 - ushort value - Unknown.
 AudioHash - metahash - Child sound.
 ParameterHash - metahash - Parameter variable defining the conditions for the loop to end.
