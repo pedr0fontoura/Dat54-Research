@@ -25,9 +25,9 @@ AudioHash - metahash - child sound.
   UnkFloat2 = float value - OutputRangeMax - Unknown
   Vectors - vector data - plotting points on the graph //0.3, 0.5 = 0.3 on X axis (input), 0.5 on Y axis
   
-  Example:
+Example:
   
-  Below, "crane_strain_test_vb_kinetic_pts" transforms the sound's volume (Item 1, UnkInt = 0) and pitch (Item 2, UnkInt = 1) in graph 1, according to the acceleration of the sound entity (soundacceleration). It also transforms the sound's volume (Item 1, UnkInt0) according to the velocity of the sound entity in the Z axis (sound.velocityz) in graph 2. The Vector plotting ensures that both the sound's volume and pitch increases from 0% to 100% as the entity accelerates //from 0 to 0.1 m/s?
+Below, "crane_strain_test_vb_kinetic_pts" transforms the sound's volume (Item 1, UnkInt = 0) and pitch (Item 2, UnkInt = 1) in graph 1, according to the acceleration of the sound entity (soundacceleration). It also transforms the sound's volume (Item 1, UnkInt0) according to the velocity of the sound entity in the Z axis (sound.velocityz) in graph 2. The Vector plotting ensures that both the sound's volume and pitch increases from 0% to 100% as the entity accelerates //from 0 to 0.1 m/s?
   
   <Item type="ParameterTransformSound">
    <Name>crane_strain_test_vb_kinetic_pts</Name>
