@@ -1,0 +1,24 @@
+The KineticSound (_kinetic) type is used to define information about kinetic-dependent sounds such as parachutes that are used to calculate a sound's pitch and volume based on the angle and velocity of an entity at any moment
+
+They adjust sound while moving depending on physics. They use properties such as Mass and pitch and yaw angles to determine how to manipulate the sound.
+
+Fields:
+UnkFloat0 - float value - Mass - Mass of object //kg?
+UnkFloat1 - float value - YawAngle in degrees.
+UnkFloat2 - float value - PitchAngle in degrees.
+
+Example:
+
+"crane_strain_test_vb_kinetic" tells the child sound that the entity has a Mass of 100, and a PitchAngle of 180.
+
+  <Item type="KineticSound">
+   <Name>crane_strain_test_vb_kinetic</Name>
+   <Header>
+    <Flags value="0x00000001" />
+    <Flags2 value="0xAAA8AAAA" />
+   </Header>
+   <AudioHash>crane_strain_test_vb_kinetic_pts</AudioHash>
+   <UnkFloat0 value="100" />
+   <UnkFloat1 value="0" />
+   <UnkFloat2 value="180" />
+  </Item>
