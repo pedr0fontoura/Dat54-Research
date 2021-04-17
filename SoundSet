@@ -1,4 +1,4 @@
-The SoundSet (_sounds) type is a set of sounds and their scripted application. Scripts call for the soundset, and then define the specific "script sound" to play. 
+The SoundSet (_sounds) type is a set of sounds and their scripted application. Scripts call for the soundset, and then define the specific "script sound" to play. SoundSets can only be called for through script files or through game.dat151.
 
 The data contains a list of items which refer to each script name and sound. Script names are pre-defined.
 
