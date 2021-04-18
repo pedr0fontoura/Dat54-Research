@@ -1,0 +1,34 @@
+The AutomationSound (_midi) type is used to play MIDI (Musical Instrument Digital Interface) sounds. 
+
+MIDIs are used to handle what would otherwise be complex sound arrangements. The AutomationSound type controls which MIDI to play, and how to play it (for example, what "instrument" or sound is used for each note type, etc).
+
+Fields:
+
+UnkFloat0 - float value - Unknown //spacing? rate?
+UnkFloat1 - float value - Unknown.
+ParameterHash - metahash - Parameters.
+AudioHash1 - metahash - Unknown. //Points to an "Unknown" sound type which identifies insturment channels.
+WaveSlotId - metahash - File location.
+UnkHash1 - metahash - File name. //the midi file itself.
+UnkData - metahash - Unknown.
+
+Example:
+
+  <Item type="AutomationSound">
+   <Name>xm15_horn_01_midi</Name>
+   <Header>
+    <Flags value="0x38000001" />
+    <Flags2 value="0xAAA9AAAA" />
+    <Unk22 value="10" />
+    <Unk23 value="10" />
+    <Unk24 value="10" />
+   </Header>
+   <AudioHash0 />
+   <UnkFloat0 value="0.6" />
+   <UnkFloat1 value="0" />
+   <ParameterHash>playbackrate</ParameterHash>
+   <AudioHash1>hash_974C8938</AudioHash1>
+   <WaveSlotId>resident/low_latency</WaveSlotId>
+   <UnkHash1>hash_5394FDFB</UnkHash1>
+   <UnkData />
+  </Item>
