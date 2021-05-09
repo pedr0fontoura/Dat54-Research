@@ -1,7 +1,10 @@
 The ParameterTransformSound (_param, _pts, _pu, _mdr) type is used to manipulate a sounds' play, using vectors and other parameter modifiers.
 
-They use vectors to manipulate a sound in a variety of ways, including volume, pitch and velocity. PTS types can host multiple different graphs at once, as well as multiple line plots on one graph, allowing for huge amounts of manipulation running at once.
+They use vectors to manipulate a sound in a variety of ways, including volume, pitch and velocity. 
 
+PTS types can host multiple different graphs at once, as well as multiple line plots on one graph, allowing for huge amounts of manipulation running at once.
+
+If an envelope sound it transformed, it is required that the envelope uses attack rather than hold to measure the length of the sound in total.
 Fields:
 
 AudioHash - metahash - child sound.
