@@ -9,12 +9,39 @@ AudioHash1 - metahash - ConditionTrue  - child sound 1.
 AudioHash2 - metahash - ConditionFalse - child sound 2.
 ParamterHash1 - metahash - Condition - Parameter for child sound 1.
 ParamterHash2 - metahash - Parameters // unknown?
-UnkByte - byte value - Unknown.
-UnkFloat - float value - Variable for parameters //such as Mass in kg, speed in m/s, etc?
+UnkByte - byte value - ConditionType
+      0 = Less Than
+      1 = Less Than or Equal To
+	  2 = Greater Than
+	  3 = Greater Than or Equal To
+	  4 = Equal To
+	  5 = Not Equal To
+	  6 = Num of Conditions
+UnkFloat - float value - Value for ConditionType //such as type/value/index, Mass in kg, speed in m/s, etc
 
-Example:
+Examples:
 
-Below, "dlc_h4_combat_shotgun_player_fpmech" assesses whether to play child sound 1 or child sound 2. The condition (hash_378A1D92) is that the player is in first person mode; child sound 1 plays if the condition is true, and child sound 2 plays if the condition is false.
+Below, "dlc_apt_champagne_hiccup_if" assesses whether to play the male or female "hiccup" child sounds.
+
+The condition "ped_type" is that the player is either male or female. If the value is equal to ped type 3 (male), it plays child sound 1.
+
+  <Item type="IfSound">
+   <Name>dlc_apt_champagne_hiccup_if</Name>
+   <Header>
+    <Flags value="0x00000001" />
+    <Flags2 value="0xAAA8AAAA" />
+   </Header>
+   <AudioHash1>dlc_apt_champagne_hiccup_male_rnd</AudioHash1>
+   <AudioHash2>dlc_apt_champagne_hiccup_female_rnd</AudioHash2>
+   <ParameterHash1>ped_type</ParameterHash1>
+   <UnkByte value="4" /> //equal to
+   <UnkFloat value="3" /> //ped_type Value (male)
+   <ParameterHash2 />
+  </Item>
+  
+Below, "dlc_h4_combat_shotgun_player_fpmech" assesses whether to play child sound 1 or child sound 2. 
+
+The condition (hash_378A1D92) is that the player is in first person mode; child sound 1 plays if the condition is true, and child sound 2 plays if the condition is false.
 
   <Item type="IfSound">
    <Name>dlc_h4_combat_shotgun_player_fpmech</Name>
@@ -29,5 +56,23 @@ Below, "dlc_h4_combat_shotgun_player_fpmech" assesses whether to play child soun
    <ParameterHash1>hash_378A1D92</ParameterHash1>
    <UnkByte value="4" />
    <UnkFloat value="1" />
+   <ParameterHash2 />
+  </Item>
+  
+Below, "dlc_apt_bvs_beast_sprint_vb_woosh_pts_rtol_mt_boost_if" assesses whether to play child sound 1 or not.
+  
+The condition "intensity" is that the player intensity is of a certain value. If the value is greater than 0.5, it plays child sound 1.
+  
+    <Item type="IfSound">
+   <Name>dlc_apt_bvs_beast_sprint_vb_woosh_pts_rtol_mt_boost_if</Name>
+   <Header>
+    <Flags value="0x00000001" />
+    <Flags2 value="0xAAA8AAAA" />
+   </Header>
+   <AudioHash1>dlc_apt_bvs_beast_sprint_vb_woosh_pts_rtol_mt_boost</AudioHash1>
+   <AudioHash2 />
+   <ParameterHash1>intensity</ParameterHash1>
+   <UnkByte value="2" /> //greater than
+   <UnkFloat value="0.5" /> //intensity Value
    <ParameterHash2 />
   </Item>
