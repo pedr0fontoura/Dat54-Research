@@ -37,7 +37,7 @@ UnkFloat1 - float value - Unknown. //-1-100; percentage?
 
 Example:
 
-"truck_horn" will have 900 ms of attack time (volume from 0 to 100%) before playing for a further 200 ms.
+"truck_horn" will have 900 ms of attack time (volume from 0 to 100%) before releasing for a further 200 ms.
 <Item type="EnvelopeSound">
  <Name>truck_horn_blast_env</Name>
  <Header>
