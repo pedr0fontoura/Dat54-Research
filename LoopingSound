@@ -1,4 +1,6 @@
-The LoopingSound (_lp, _loop) type is used to replay a sound continuously under the right conditions. It can be used to replay its child infinitely, or until a certain condition is met.
+The LoopingSound (_lp, _loop) type is used to replay a sound continuously under the right conditions. 
+
+It can be used to replay its child infinitely, or until a certain condition is met.
 
 Fields:
 
