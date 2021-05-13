@@ -1,0 +1,46 @@
+List of unresolved hashes sorted by sound type.
+
+//LoopingSound
+//EnvelopeSound
+//TwinLoopSound
+//SpeechSound
+//OnStopSound
+//WrapperSound
+//SequentialSound
+//StreamingSound
+//RetriggeredOverlappedSound
+//CrossfadeSound
+//CollapsingStereoSound
+//SimpleSound
+0x138E0046 //streamed_ambience/fridge_hum_01
+
+//MultitrackSound
+//RandomizedSound
+//EnvironmentSound
+//DynamicEntitySound
+//SequentialOverlapSound
+//ModularSynthSound
+//GranularSound
+//DirectionalSound
+//KineticSound
+//SwitchSound
+//VariableCurveSound
+//VariablePrintValueSound
+//VariableBlockSound
+//IfSound
+//MathOperationSound
+//ParameterTransformSound
+//FluctuatorSound
+//AutomationSound
+//ExternalStreamSound
+//SoundSet
+//Unknown
+//Unknown2
+//SoundList
+
+Other hashes
+//FileName entries
+//Variables
+0x378A1D92 //likely camera mode variable - used on interior/exterior stereo IfSound types.
+
+//Parameters
