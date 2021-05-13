@@ -1,4 +1,4 @@
-The SequentialOverlapSound (_sqol) type is similar to the SequentialSound, but with the added ability to define a delay time between each sound in the sequence, like the RetriggeredOverlappedSound.
+The SequentialOverlapSound (_sqol, seqol, seqo) type is similar to the SequentialSound, but with the added ability to define a delay time between each sound in the sequence, like the RetriggeredOverlappedSound.
 
 The data contains a list of AudioTracks which refer to each sound played in sequential order.
 

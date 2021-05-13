@@ -16,12 +16,20 @@ AudioHash - metahash - child sound.
   UnkInt =  integer value - Type - Variable type 
         0 = Volume
         1 = Pitch
-        2 = ?
-        3 = ?
-        4 = ?
-        5 = ?
-        6 = HPF
-        7 = ?
+        2 = Pan
+        3 = StartOffset
+        4 = PreDelay
+        5 = LPF //Low pass filter)
+        6 = HPF //High pass filter)
+        7 = Variable (overriden by ParameterHash)
+		8 = Rolloff
+		9 = Log LPF //??
+		10 = Log HPF //??
+		11 = Variable Log LPF //??
+		12 = Variable Log HPF //??
+		13 = Variable Volume // variable + volume?
+		14 = Variable Pitch // variable + pitch?
+		15 = Number of PTS Transforms //count
   ParameterHash - metahash - Parameter - Variable type override //overrides UnkInt if already defined.
   UnkFloat0 = float value - SmoothRate - Unknown //-1 = None
   UnkFloat1 = float value - OutputRangeMin - Unknown
