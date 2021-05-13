@@ -1,0 +1,142 @@
+The MathOperationSound (_math, _mos, _mathop, _calc, _compute, _init) type is used to perform mathematical operations to a sound.
+
+It uses input variables and operations such as addition, subtraction and randomization to produce an output. 
+
+More than one operation can be performed at a time, and operations can be cascaded to perform multiple operations in one.
+
+Fields:
+AudioHash - metahash - child sound
+UnkData - Operations - Item list of operation(s)
+UnkByte - OperationType
+      0 = Addition (+)
+      1 = Subtraction (-)
+	  2 = Multiply (*)
+	  3 = Divide (/)
+	  4 = Set
+	  5 = Mod //?
+	  6 = Min
+	  7 = Max
+      8 = Abs (absolute value)
+	  9 = Sign //positive/negative?
+	  10 = Floor //greatest integer less than or equal to the input.
+	  11 = Ceil //smallest integer greater than or equal to the input.
+      12 = Rand (randomized)
+	  13 = Sin
+	  14 = Cos
+	  15 = SquareRoot
+	  16 = DBToLinear //dB = decibel?
+	  17 = LinearToDB //dB = decibel?
+	  18 = PitchToRatio
+	  19 = RatioToPitch
+	  20 = GetTime
+	  21 = Fsel //FloatingPointSelect
+      22 = ValueInRange
+	  23 = Clamp //Clams range
+	  24 = Pow //PowerOf
+	  25 = Round //round up/down?
+	  26 = ScaledSin //?
+	  27 = ScaledTri //?
+	  28 = ScaledSaw //?
+	  29 = ScaledSquare //?
+	  30 = Smooth //?
+	  31 = GetScaledTime //?
+	  32 = ClampRange //?
+	  33 = GetPositionX
+	  34 = GetPositionY
+	  35 = GetPositionZ	
+UnkInt0 - integer value
+UnkInt1 - integer value - Variable 1
+UnkInt2 - integer value
+UnkInt3 - integer value - Variable 2
+UnkInt4 - integer value
+ParameterHash0 - metahash - Input variable
+ParameterHash1 - metahash - Output variable
+  
+Examples:
+
+ 4) Set
+Below, the dlc_h4_..._setlooptime_02 math operation computes the following calculations on the child sound, dlc_hei4_..._mockingbird_tropical_a_02.
+  
+looptime = set(0.2) //this declares that the "looptime" output variable is the value 0.2.
+
+  <Item type="MathOperationSound">
+   <Name>dlc_h4_ih_tropical_mockingbird_seq_chunk_b_setlooptime_02</Name>
+   <Header>
+    <Flags value="0x00000001" />
+    <Flags2 value="0xAAA9AAAA" />
+   </Header>
+   <AudioHash>dlc_hei4_tropical_mockingbird_mockingbird_tropical_a_02</AudioHash>
+   <UnkData>
+    <Item>
+     <UnkByte value="4" /> //set
+     <UnkInt0 value="1045220557" /> //0.2 (3E4C CCCD)
+     <UnkInt1 value="0" />
+     <UnkInt2 value="0" />
+     <UnkInt3 value="0" />
+     <UnkInt4 value="0" />
+     <ParameterHash0 />
+     <ParameterHash1>looptime</ParameterHash1>
+    </Item>
+   </UnkData>
+  </Item>
+
+12) Rand and Fsel (FloatingPointSelect)
+Below, the siren_wail_01_mos math operation computes the following calculations on the child sound, reisdent_vehicles_siren_wail_01
+
+randpitch = rand(-8, 8)  //this declares that the "randpitch" output variable is, at all times, a random value between -8 and 8
+randtimetilchange = rand(0.25, 1.5) //this declares that the "randtimetilchange" output variable is, at all times, a random value between 0.25 and 1.5
+pitch = fsel(timetilchange,pitch,randpitch) //this completes a calculation that selects
+timetilchange = fsel(timetilchange,timetilchange,randtimetilchange)
+
+The equation is a randomised pitch and time manipulation of the child sound, resulting in a warped sound.
+
+  <Item type="MathOperationSound">
+   <Name>siren_wail_01_mos</Name>
+   <Header>
+    <Flags value="0x00000001" />
+    <Flags2 value="0xAAA8AAAA" />
+   </Header>
+   <AudioHash>resident_vehicles_siren_wail_01</AudioHash>
+   <UnkData>
+    <Item>
+     <UnkByte value="12" /> //rand
+     <UnkInt0 value="-1056964608" /> //-8 (FFFF FFFF C100 0000)
+     <UnkInt1 value="0" />
+     <UnkInt2 value="1090519040" /> //8 (4100 0000)
+     <UnkInt3 value="0" />
+     <UnkInt4 value="0" />
+     <ParameterHash0 />
+     <ParameterHash1>randpitch</ParameterHash1>
+    </Item>
+    <Item>
+     <UnkByte value="12" /> //rand
+     <UnkInt0 value="1048576000" /> //0.25 (3E80 0000)
+     <UnkInt1 value="0" />
+     <UnkInt2 value="1069547520" /> //1.5 (3FC0 0000)
+     <UnkInt3 value="0" />
+     <UnkInt4 value="0" />
+     <ParameterHash0 />
+     <ParameterHash1>randtimetilchange</ParameterHash1>
+    </Item>
+    <Item>
+     <UnkByte value="21" /> //fsel
+     <UnkInt0 value="0" />
+     <UnkInt1 value="1705254660" /> //timetilchange
+     <UnkInt2 value="0" />
+     <UnkInt3 value="1061927116" /> //pitch
+     <UnkInt4 value="0" />
+     <ParameterHash0>randpitch</ParameterHash0>
+     <ParameterHash1>pitch</ParameterHash1>
+    </Item>
+    <Item>
+     <UnkByte value="21" /> //fsel
+     <UnkInt0 value="0" />
+     <UnkInt1 value="1705254660" /> //timetilchange
+     <UnkInt2 value="0" />
+     <UnkInt3 value="1705254660" /> //timetilchange
+     <UnkInt4 value="0" />
+     <ParameterHash0>randtimetilchange</ParameterHash0>
+     <ParameterHash1>timetilchange</ParameterHash1>
+    </Item>
+   </UnkData>
+  </Item>
