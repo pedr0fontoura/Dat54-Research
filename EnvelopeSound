@@ -21,8 +21,17 @@ ParameterHash2 - metahash - Parameters.
 ParameterHash3 - metahash - Parameters.
 ParameterHash4 - metahash - Parameters.
 AudioHash - metahash - child sound.
-UnkInt3 - integer value - Unknown.  //0 - 5; parameters? 5 always paired wth ParameterHash5
-ParameterHash5 - metahash - Parameters.
+UnkInt3 - integer value - EnvelopeType
+      0 = Volume
+      1 = Pitch
+	  2 = Pan
+	  3 = LPF
+	  4 = HPF
+	  5 = Variable (overriden by ParameterHash5)
+	  6 = Logarithmic LPF
+	  7 = Logarithmic HPF
+	  8 = Num of EnvelopeTypes //?
+ParameterHash5 - metahash - EnvelopeType override 
 UnkFloat0 - float value - Unknown. //-100-1; percentage?
 UnkFloat1 - float value - Unknown. //-1-100; percentage?
 

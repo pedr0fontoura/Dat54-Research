@@ -23,10 +23,10 @@ AudioHash - metahash - child sound.
         6 = HPF //High pass filter)
         7 = Variable (overriden by ParameterHash)
 		8 = Rolloff
-		9 = Log LPF //??
-		10 = Log HPF //??
-		11 = Variable Log LPF //??
-		12 = Variable Log HPF //??
+		9 = Logarithmic LPF //??
+		10 = Logarithmic HPF //??
+		11 = Variable Logarithmic LPF //??
+		12 = Variable Logarithmic HPF //??
 		13 = Variable Volume // variable + volume?
 		14 = Variable Pitch // variable + pitch?
 		15 = Number of PTS Transforms //count
