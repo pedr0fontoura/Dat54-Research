@@ -7,7 +7,7 @@ UnkHash - metahash - Presets //?
 UnkFloat - float value - Unknown.
 UnkInt - integer value - Unknown.
 TrackCount - integer value - Unknown.
-AudioTracks - Unknown.
+AudioTracks - Unknown. //environmentsound entries
 UnkItems - Unknown. Item list of variables.
 	UnkHash - metahash - input variable
 	ParameterHash - metahash - output variable
