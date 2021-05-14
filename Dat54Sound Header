@@ -27,7 +27,7 @@ LPFCutOff - ushort value //low pass filter cut-off
 LPFCutOffVariance - ushort value
 HPFCutOff - ushort value //high pass filter cut-off
 HPFCutOffVariance - ushort value
-UnkHash3 - metahash - Unknown //StartOffsetPercentage - Curve?
+UnkHash3 - metahash - RolloffCurves //default_rolloff
 Unk18 - ushort value - Unknown //DistanceAttenuation - Distance?
 Unk19 - byte value - Unknown //EnvironmentalEffects?
 Unk20 - byte value - Unknown //VirtualiseAsGroup - Stereo panning - L-R?
@@ -39,6 +39,7 @@ Unk23 - float value - Echo. //y ?
 Unk24 - float value - Echo. //z ?
 Unk25 - float value - Unknown.
 Unk26 - float value - Unknown.
+//StartOffsetPercentage
 //InvertPhase
 //Mute
 //MuteOnUserMusic
