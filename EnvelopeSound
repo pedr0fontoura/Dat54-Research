@@ -12,15 +12,15 @@ UnkInt0 - integer value - Hold - duration of sustain in ms.
 UnkShort4 - ushort value - HoldVariance - affects the hold duration.
 UnkInt1 - integer value - Release - duration of release in ms. Release style pairs up to CurvesUnkHash2.
 UnkInt2 - integer value - ReleaseVariance - affects the duration of the release.
-CurvesUnkHash0 - metahash - curves.dat16 entry. Attack curve.
-CurvesUnkHash1 - metahash - curves.dat16 entry. Decay curve. //decaying_exponential
-CurvesUnkHash2 - metahash - curves.dat16 entry. Release curve. //default_release_curve
-ParameterHash0 - metahash - Parameters.
-ParameterHash1 - metahash - Parameters.
-ParameterHash2 - metahash - Parameters.
-ParameterHash3 - metahash - Parameters.
-ParameterHash4 - metahash - Parameters.
-AudioHash - metahash - child sound.
+CurvesUnkHash0 - metahash - AttackCurve - curves.dat16 entry
+CurvesUnkHash1 - metahash - DecayCurve - curves.dat16 entry //decaying_exponential
+CurvesUnkHash2 - metahash - ReleaseCurve - curves.dat16 entry //default_release_curve
+ParameterHash0 - metahash - AttackVariable
+ParameterHash1 - metahash - DecayVariable
+ParameterHash2 - metahash - SustainVariable
+ParameterHash3 - metahash - HoldVariable
+ParameterHash4 - metahash - ReleaseVariable
+AudioHash - metahash - child sound
 UnkInt3 - integer value - EnvelopeType
       0 = Volume
       1 = Pitch
