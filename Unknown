@@ -1,0 +1,36 @@
+The "Unknown" (_map) sound type is used to map sounds to an AutomationSound type, which uses a MIDI (Musical Instrument Digital Interface) sound. 
+
+Fields:
+
+UnkData - Maps - Item list of mappings
+	UnkByte0 - byte value - NoteMin - minimum note of this mapping
+	UnkByte1 - byte value - NoteMax - maximum note of this mapping
+	UnkByte2 - byte value - Channel //assigned channel of the MIDI
+	AudioTrack - metahash - Sound to play on this mapping.
+
+Example:
+
+Below, "merry_christmas_01_map" has two mappings:
+	- notes 0 to 60 (C1 to C4) are assigned channel 1, playing a jingle sound.
+	- notes 61 to 128 (D4 to G#10) are assigned channel 0, playing an organ synth sound.
+
+  <Item type="Unknown">
+   <Name>merry_christmas_01_map</Name>
+   <Header>
+    <Flags value="0xAAAAAAAA" />
+   </Header>
+   <UnkData>
+    <Item>
+     <UnkByte0 value="61" />
+     <UnkByte1 value="128" />
+     <UnkByte2 value="0" />
+     <AudioTrack>merry_christmas_01_organ_synth</AudioTrack>
+    </Item>
+    <Item>
+     <UnkByte0 value="0" />
+     <UnkByte1 value="60" />
+     <UnkByte2 value="1" />
+     <AudioTrack>merry_christmas_01_jingles</AudioTrack>
+    </Item>
+   </UnkData>
+  </Item>
