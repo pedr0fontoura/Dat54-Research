@@ -3,13 +3,16 @@ The ModularSynthSound (_mod, _synth, _mss) is used to assign synthesised sounds 
 Fields:
 
 OptAmpUnkHash - metahash - optamp.dat10.rel entry.
-UnkHash - metahash - Unknown.
+UnkHash - metahash - Presets //?
 UnkFloat - float value - Unknown.
 UnkInt - integer value - Unknown.
 TrackCount - integer value - Unknown.
 AudioTracks - Unknown.
-UnkItems - Unknown. Item list of presets.
-
+UnkItems - Unknown. Item list of variables.
+	UnkHash - metahash - input variable
+	ParameterHash - metahash - output variable
+	Value - float value - unknown //variable value
+	
 Example:
 
   <Item type="ModularSynthSound">
