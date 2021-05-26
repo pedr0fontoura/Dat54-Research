@@ -24,7 +24,11 @@ List of unresolved hashes sorted by sound type.
 
 //SimpleSound
 0x138E0046 //streamed_ambience/fridge_hum_01
-
+0xC4152D01 //police scanner specific location stab city
+0xBCF58F88 //police scanner streets apelin??? way
+0x3F9F3D22 //police scanner streets armadillo??? avenue
+0xF8F5A93B //police scanner streets north ??? avenue
+0x024CA425 //police scanner streets nilk??? street
 //MultitrackSound
 
 //RandomizedSound
@@ -87,5 +91,7 @@ Other hashes
 
 //Variables
 0x378A1D92 //likely camera mode variable - used on interior/exterior stereo IfSound types.
+0xCF9C41DC //playbackrate min?
+0x2DA02347 //playbackrate max?
 
 //Parameters
