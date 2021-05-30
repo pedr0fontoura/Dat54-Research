@@ -4,10 +4,14 @@ It uses input parameters and operations such as addition, subtraction and random
 
 More than one operation can be performed at a time, and operations can be cascaded to perform multiple operations in one.
 
+Each operation uses one or more of the three input fields. There are a total of 6 inputs, 3 input "parameters" and 3 input "immediates" (literal values). 
+
+Operations will accept either form of input (parameter or immediate values). Some operations use only input 1, while some use all 3 inputs.
+
 Fields:
 AudioHash - metahash - child sound
 UnkData - Operations - Item list of operation(s)
-	UnkByte - OperationType
+	UnkByte - OperationType //see Operation Formulas for more information
 		0 = Addition (+)
 		1 = Subtraction (-)
 		2 = Multiply (*)
@@ -44,14 +48,73 @@ UnkData - Operations - Item list of operation(s)
 		33 = GetPositionX
 		34 = GetPositionY
 		35 = GetPositionZ	
-	UnkInt0 - integer value - Immediate value 1
+	UnkInt0 - integer value - Input immediate value 1
 	UnkInt1 - integer value - Input parameter 1
-	UnkInt2 - integer value - Immediate value 2
+	UnkInt2 - integer value - Input immediate value 2
 	UnkInt3 - integer value - Input parameter 2
-	UnkInt4 - integer value  - Immediate value 3
+	UnkInt4 - integer value  - Input immediate value 3
 	ParameterHash0 - metahash - Input parameter 3
 	ParameterHash1 - metahash - Output parameter
   
+Operation Formulas:
+
+Below is a list of the formulas each of the operation types use. Certain operations use certain inputs and in a particular order.
+
+0 = Addition (+)
+	output= input1 + input2
+
+1 = Subtraction (-)
+	output = input1 - input2
+
+2 = Multiply (*)
+	output = input1 * input2
+		
+3 = Divide (/)
+	output = input1 / input2
+	
+4 = Set
+	output = input1
+	
+5 = Mod //?
+6 = Min
+7 = Max
+8 = Abs (absolute value)
+9 = Sign //positive/negative?
+10 = Floor //greatest integer less than or equal to the input
+11 = Ceil //smallest integer greater than or equal to the input
+12 = Rand (randomized)
+13 = Sin
+14 = Cos
+15 = SquareRoot
+16 = DBToLinear //dB = decibel?
+17 = LinearToDB //dB = decibel?
+18 = PitchToRatio
+19 = RatioToPitch
+20 = GetTime
+
+21 = Fsel //FloatingPointSelect
+	if (input1 >= 0.0)
+		output = input2;
+	else
+		output = input3;
+
+22 = ValueInRange
+	output = ((input3 - input2) * input1) + input2
+	
+23 = Clamp //Clams range
+24 = Pow //PowerOf
+25 = Round //round up/down?
+26 = ScaledSin //?
+27 = ScaledTri //?
+28 = ScaledSaw //?
+29 = ScaledSquare //?
+30 = Smooth //?
+31 = GetScaledTime //?
+32 = ClampRange //?
+33 = GetPositionX
+34 = GetPositionY
+35 = GetPositionZ	
+
 Examples:
 
  4) Set
@@ -83,11 +146,22 @@ looptime = set(0.2) //this declares that the "looptime" output parameter is the 
 12) Rand and Fsel (FloatingPointSelect)
 Below, the siren_wail_01_mos math operation computes the following calculations on the child sound, reisdent_vehicles_siren_wail_01
 
-randpitch = rand(-8, 8)  //this declares that the "randpitch" output parameter is, at all times, a random immediate value between -8 and 8
-randtimetilchange = rand(0.25, 1.5) //this declares that the "randtimetilchange" output parameter is, at all times, a random immediate value between 0.25 and 1.5
-pitch = fsel(timetilchange,pitch,randpitch)
-timetilchange = fsel(timetilchange,timetilchange,randtimetilchange)
+#Operation 1: randpitch = rand(-8, 8)  //this declares that the "randpitch" output parameter is, at all times, a random immediate value between -8 and 8
 
+#Operation 2: randtimetilchange = rand(0.25, 1.5) //this declares that the "randtimetilchange" output parameter is, at all times, a random immediate value between 0.25 and 1.5
+
+#Operation 3: 
+	if (timetilchange >= 0), //if "timetilchange" is less than 0, pitch=randpitch
+		pitch = pitch
+	else
+		pitch = randpitch
+
+#Operation 4: 
+	if (timetilchange >= 0), //if"timetilchange" is less than 0, timetilchange=randtimetilchange
+		timetilchange = timetilchange
+	else
+		timetilchange = randtimetilchange
+	
 The equation is a randomised pitch and time manipulation of the child sound, resulting in a warped sound.
 
 <Item type="MathOperationSound">
