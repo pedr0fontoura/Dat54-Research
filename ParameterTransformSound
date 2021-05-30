@@ -12,7 +12,7 @@ Items - Item list of PTS graphs
 	ParameterHash - metahash - PTS type (speed, velocity, soundacceleration, ctrl, etc)
 	UnkFloat0 - float value - InputRangeMin - determines the X-axis range for each PTS graph
 	UnkFloat1 - float value - InputRangeMax - determines the X-axis range for each PTS graph
-	NestedData - Transforms - Item lim list of transforms
+	NestedData - Transforms - Item list of transforms
 		UnkInt =  integer value - Type - Variable type 
 			0 = Volume
 			1 = Pitch
@@ -32,8 +32,8 @@ Items - Item list of PTS graphs
 			15 = Number of PTS Transforms //count
 		ParameterHash - metahash - Parameter - Variable type override //overrides UnkInt if already defined.
 		UnkFloat0 - float value - SmoothRate - Unknown //-1 = None
-		UnkFloat1 - float value - OutputRangeMin - Unknown
-		UnkFloat2 - float value - OutputRangeMax - Unknown
+		UnkFloat1 - float value - OutputRangeMin - The minimum output (1 = origin)
+		UnkFloat2 - float value - OutputRangeMax - The maximum output (1 = origin)
 		Vectors - vector data - plotting points on the graph //0.3, 0.5 = 0.3 on X axis (input), 0.5 on Y axis
 		
 Example:
