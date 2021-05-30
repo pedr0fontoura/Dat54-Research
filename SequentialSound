@@ -12,14 +12,14 @@ Example:
 
 Below, "note_2" will play immediately after "note_1" when "notes" is played.
 
-  <Item type="SequentialSound">
-   <Name>notes</Name>
-   <Header>
-    <Flags value="0x00000001" />
-    <Flags2 value="0xAAA8AAAA" />
-   </Header>
-   <AudioTracks>
-    <Item>note_1</Item>
-    <Item>note_2</Item>
-   </AudioTracks>
-  </Item>
+<Item type="SequentialSound">
+ <Name>notes</Name>
+ <Header>
+  <Flags value="0x00000001" />
+  <Flags2 value="0xAAA8AAAA" />
+ </Header>
+ <AudioTracks>
+  <Item>note_1</Item>
+  <Item>note_2</Item>
+ </AudioTracks>
+</Item>
