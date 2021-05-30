@@ -7,28 +7,32 @@ Fields:
 UnkFloat0 - float value - Unknown //spacing? rate?
 UnkFloat1 - float value - Unknown.
 ParameterHash - metahash - Parameters.
-AudioHash1 - metahash - Unknown. //Points to an "Unknown" sound type which identifies insturment channels.
+AudioHash1 - metahash - Map //maps sounds/insturments to MIDI note range(s)
 WaveSlotId - metahash - File location.
 UnkHash1 - metahash - File name. //the midi file itself.
 UnkData - metahash - Unknown.
 
 Example:
 
-  <Item type="AutomationSound">
-   <Name>xm15_horn_01_midi</Name>
-   <Header>
-    <Flags value="0x38000001" />
-    <Flags2 value="0xAAA9AAAA" />
-    <Unk22 value="10" />
-    <Unk23 value="10" />
-    <Unk24 value="10" />
-   </Header>
-   <AudioHash0 />
-   <UnkFloat0 value="0.6" />
-   <UnkFloat1 value="0" />
-   <ParameterHash>playbackrate</ParameterHash>
-   <AudioHash1>hash_974C8938</AudioHash1>
-   <WaveSlotId>resident/low_latency</WaveSlotId>
-   <UnkHash1>hash_5394FDFB</UnkHash1>
-   <UnkData />
-  </Item>
+Below, "christmas_feed_message_nyn" plays the "newyearsnight" MIDI file. It maps the notes according to the "dlc_xm17_emitter_tree_map" MIDI map.
+
+<Item type="AutomationSound">
+ <Name>christmas_feed_message_nyn</Name>
+ <Header>
+  <Flags value="0x0024C005" />
+  <Flags2 value="0xAAA8AAAA" />
+  <Volume value="64936" />
+  <DopplerFactor value="0" />
+  <Category>ambience_general</Category>
+  <HPFCutoff value="3000" />
+  <Unk18 value="40" />
+ </Header>
+ <AudioHash0 />
+ <UnkFloat0 value="1.5" />
+ <UnkFloat1 value="0" />
+ <ParameterHash />
+ <AudioHash1>dlc_xm17_emitter_tree_map</AudioHash1>
+ <WaveSlotId>resident/low_latency</WaveSlotId>
+ <UnkHash1>newyearsnight</UnkHash1>
+ <UnkData />
+</Item>

@@ -1,14 +1,39 @@
-The TwinLoopSound (_tl, _tls) block is used to loop-play two sounds together. 
+The TwinLoopSound (_tl, _tls, _twin_loop) block is used to loop-play two sounds together. 
 
 Fields:
 
-UnkShort0
-UnkShort1
-UnkShort2
-UnkShort3
-UnkHash
-ParameterHash0
-ParameterHash1
-ParameterHash2
-ParameterHash3
-AudioTracks - list of audio tracks.
+UnkShort0 - ushort value - Unknown
+UnkShort1 - ushort value - Unknown
+UnkShort2 - ushort value - Unknown
+UnkShort3 - ushort value - Unknown
+UnkHash - metahash - Unknown //equal_power_rise
+ParameterHash0 - metahash - Parameters //Unknown
+ParameterHash1 - metahash - Parameters //Unknown
+ParameterHash2 - metahash - Parameters //Unknown
+ParameterHash3 - metahash - Parameters //Unknown
+AudioTracks - Item list of audio tracks.
+
+Example:
+
+<Item type="TwinLoopSound">
+ <Name>avenger_jet_whine_tl</Name>
+ <Header>
+  <Flags value="0x00008005" />
+  <Flags2 value="0xAAA8AAAA" />
+  <Volume value="300" />
+  <Category>vehicles_planes</Category>
+ </Header>
+ <UnkShort0 value="150" />
+ <UnkShort1 value="600" />
+ <UnkShort2 value="40" />
+ <UnkShort3 value="150" />
+ <UnkHash>equal_power_rise</UnkHash>
+ <ParameterHash0 />
+ <ParameterHash1 />
+ <ParameterHash2 />
+ <ParameterHash3 />
+ <AudioTracks>
+  <Item>dlc_christmas2017_avenger_avenger_heli_jet06_02</Item>
+  <Item>dlc_christmas2017_avenger_avenger_heli_jet06_01</Item>
+ </AudioTracks>
+</Item>

@@ -22,15 +22,15 @@ ParameterHash3 - metahash - HoldVariable
 ParameterHash4 - metahash - ReleaseVariable
 AudioHash - metahash - child sound
 UnkInt3 - integer value - EnvelopeType
-      0 = Volume
-      1 = Pitch
-	  2 = Pan
-	  3 = LPF
-	  4 = HPF
-	  5 = Variable (overriden by ParameterHash5)
-	  6 = Logarithmic LPF
-	  7 = Logarithmic HPF
-	  8 = Num of EnvelopeTypes //?
+	0 = Volume
+	1 = Pitch
+	2 = Pan
+	3 = LPF
+	4 = HPF
+	5 = Variable (overriden by ParameterHash5)
+	6 = Logarithmic LPF
+	7 = Logarithmic HPF
+	8 = Num of EnvelopeTypes //?
 ParameterHash5 - metahash - EnvelopeType override 
 UnkFloat0 - float value - Unknown. //-100-1; percentage?
 UnkFloat1 - float value - Unknown. //-1-100; percentage?
@@ -38,8 +38,9 @@ UnkFloat1 - float value - Unknown. //-1-100; percentage?
 Example:
 
 "truck_horn" will have 900 ms of attack time (volume from 0 to 100%) before releasing for a further 200 ms.
+
 <Item type="EnvelopeSound">
- <Name>truck_horn_blast_env</Name>
+<Name>truck_horn_blast_env</Name>
  <Header>
   <Flags value="0x00000001" />
   <Flags2 value="0xAAA1AAAA" />

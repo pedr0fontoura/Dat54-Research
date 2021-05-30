@@ -15,17 +15,15 @@ Example:
 "beep_sound_env" will be looped 3 times by "beep_sound_loop".
 
 <Item type="LoopingSound">
-   <Name>beep_sound_loop</Name>
-   <Header>
-    <Flags value="0x00000000" />
-    <Flags2 value="0xAAAAAAAA" />
-    <Category />
-   </Header>
-   <UnkShort0 value="3" />
-   <UnkShort1 value="0" />
-   <UnkShort2 value="0" />
-   <AudioHash>beep_sound_env</AudioHash>
-   <ParameterHash />
-  </Item>
-  
-  
+ <Name>beep_sound_loop</Name>
+ <Header>
+  <Flags value="0x00000000" />
+  <Flags2 value="0xAAAAAAAA" />
+  <Category />
+ </Header>
+ <UnkShort0 value="3" />
+ <UnkShort1 value="0" />
+ <UnkShort2 value="0" />
+ <AudioHash>beep_sound_env</AudioHash>
+ <ParameterHash />
+</Item>

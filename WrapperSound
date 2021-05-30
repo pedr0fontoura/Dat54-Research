@@ -1,4 +1,4 @@
-The WrapperSound (wrp, wrap, wrapper) type is a soundblock that can be used to "wrap" two sounds together. 
+The WrapperSound (_wrp, _wrap, _wrapper, _wrapped) type is a soundblock that can be used to "wrap" two sounds together. 
 
 A fall-back sound can be applied using the WrapperSound block, which will be played if, for example, the initial sound is not found, or is requested too quickly. 
 
@@ -6,7 +6,7 @@ As well as wrapping sounds, the WrapperSound block can be used as a general-use 
 
 Fields:
 
-AudioHash0 - metahash - child sound 1.
+AudioHash0 - metahash - ChildSound - child sound 1.
 FrameStartTime - integer value - Unknown. Always 0.
 AudioHash1 - metahash - FallbackSound - child sound 2.
 FrameStartInterval - ushort value - Unknown. Always 0.
@@ -17,18 +17,20 @@ UnkByteData - byte value - Unknown.
 
 Example:
 
-  <Item type="WrapperSound">
-   <Name>toreador_ignition</Name>
-   <Header>
-    <Flags value="0x00000000" />
-   </Header>
-   <AudioHash0>toreador_ignition_switch</AudioHash0>
-   <FrameStartTime value="0" />
-   <AudioHash1>ignition</AudioHash1>
-   <FrameTimeInterval value="0" />
-   <Variables />
-   <AudioTracks>
-    <Item>toreador_ignition_switch</Item>
-    <Item>ignition</Item>
-   </AudioTracks>
-  </Item>
+"toreador_ignition" will play "toreador_ignition_switch" unless it is not found, in which case it will use the Fallback "ignition" sound.
+
+<Item type="WrapperSound">
+ <Name>toreador_ignition</Name>
+ <Header>
+  <Flags value="0x00000000" />
+ </Header>
+ <AudioHash0>toreador_ignition_switch</AudioHash0>
+ <FrameStartTime value="0" />
+ <AudioHash1>ignition</AudioHash1>
+ <FrameTimeInterval value="0" />
+ <Variables />
+ <AudioTracks>
+  <Item>toreador_ignition_switch</Item>
+  <Item>ignition</Item>
+ </AudioTracks>
+</Item>

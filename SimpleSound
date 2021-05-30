@@ -12,14 +12,14 @@ WaveSlotNum - byte value - Unknown. Always set to 0.
 
 Example:
 
-"scream_sound_ss" plays "scream_01.wav" from "ambience.awc" located in "resident.rpf".
+"resident_ambience_scream_01" plays "scream_01.wav" from "ambience.awc" located in "resident.rpf".
 
-  <Item type="SimpleSound">
-   <Name>scream_sound_ss</Name>
-   <Header>
-    <Flags value="0x00000000" />
-   </Header>
-   <ContainerName>resident/ambience</ContainerName>
-   <FileName>scream_01</FileName>
-   <WaveSlotNum value="0" />
-  </Item>
+<Item type="SimpleSound">
+ <Name>resident_ambience_scream_01</Name>
+ <Header>
+  <Flags value="0x00000000" />
+ </Header>
+ <ContainerName>resident/ambience</ContainerName>
+ <FileName>scream_01</FileName>
+ <WaveSlotNum value="0" />
+</Item>

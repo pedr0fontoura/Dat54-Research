@@ -1,6 +1,8 @@
-The OnStopSound (_os, _oss, _onstop, _on_stop) type is used to switch between different child sounds or behaviors when another condition is met. Each child sound has its own conditions which effect if and when to trigger the OnStop behavior. By default, up to three hashes can be used to switch between.
+The OnStopSound (_os, _oss, _onstop, _on_stop) type is used to switch between different child sounds or behaviors when another condition is met. 
 
-The standard configuration assumes that once AudioHash0's conditions have been met, AudioHash1 is used, and once AudioHash1's conditions have been met, AudioHash2 is used, and so forth. 
+Each child sound has its own conditions which affect if and when to trigger the OnStop behavior. By default, up to three hashes can be used to switch between.
+
+It assumes that once AudioHash0's conditions have been met, AudioHash1 is used, and once AudioHash1's conditions have been met, AudioHash2 is used, and so forth. 
 
 The conditions may depend on both flags, parameter hashes, and other hashes' data, such as paramter transform data.
 
@@ -8,16 +10,16 @@ Fields:
 
 AudioHash0 - metahash - child sound 1.
 AudioHash1 - metahash - child sound 2.
-AudioHash2 - metahash - Unknown //child sound 3?
+AudioHash2 - metahash - child sound 3.
 
 Example:
 
-  <Item type="OnStopSound">
-   <Name>sum20_arcade_general_qub3d_attract_loop_mdr_oss</Name>
-   <Header>
-    <Flags value="0x00000000" />
-   </Header>
-   <AudioHash0>sum20_arcade_general_qub3d_attract_loop_mdr_mt</AudioHash0>
-   <AudioHash1>sum20_arcade_general_qub3d_attract_loop_mdr_oss_death</AudioHash1>
-   <AudioHash2 />
-  </Item>
+<Item type="OnStopSound">
+ <Name>sum20_arcade_general_qub3d_attract_loop_mdr_oss</Name>
+ <Header>
+  <Flags value="0x00000000" />
+ </Header>
+ <AudioHash0>sum20_arcade_general_qub3d_attract_loop_mdr_mt</AudioHash0>
+ <AudioHash1>sum20_arcade_general_qub3d_attract_loop_mdr_oss_death</AudioHash1>
+ <AudioHash2 />
+</Item>

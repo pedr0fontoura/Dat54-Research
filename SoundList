@@ -9,17 +9,17 @@ Example:
 "horn_list" picks from any of its child sounds to play.
 
 <Item type="SoundList">
-   <Name>horn_list</Name>
-   <Header>
+  <Name>horn_list</Name>
+  <Header>
     <Flags value="0xAAAAAAAA" />
-   </Header>
-   <UnkShort value="0" />
-   <Items>
+  </Header>
+  <UnkShort value="0" />
+  <Items>
     <Item>horn_01</Item>
     <Item>horn_02</Item>
     <Item>horn_03</Item>
     <Item>horn_04</Item>
     <Item>horn_05</Item>
     <Item>horn_06</Item>
-   </Items>
-  </Item>
+  </Items>
+</Item>

@@ -1,8 +1,8 @@
-The RetriggeredOverlappedSound (_rt, _rtol, _retrigger, _retrig) type is used to replay sounds a number of times. 
+The RetriggeredOverlappedSound (_rt, _rtol, _retrigger, _retrig, _overlap) type is used to replay sounds a number of times. 
 
-Delay duration can be defined, affecting the duration at which the sound plays before it is replayed again. 
+Delay or "overlap" duration can be defined, affecting the duration at which the sound plays before it is replayed again. 
 
-Both a "start" and "tail" sound can also be defined, which play only once, on the first and last instance, respectively. This affects the number of times the retriggered sound itself is played.
+Both a "start" and "tail" sound can also be defined, which play only once, on the first and last instance, respectively. These are both taken into consideration by the Retriggers value.
 
 Fields:
 
@@ -14,29 +14,49 @@ ParameterHash0 - metahash - Parameters.
 ParameterHash1 - metahash - Parameters.
 AudioHash0 - metahash - StartSound - the sound that plays first.
 AudioHash1 - metahash - RetriggerSound - the sound that is retriggered.
-AudioHash2 - metahash - TailSound - the sound that plays at the end.
+AudioHash2 - metahash - TailSound - the sound that plays last.
 
 
-Example:
+Examples:
 
 "reversing_beep" is played 5 times, each for 500 ms, when "reversing_beep_rtol" is played.
-  <Item type="RetriggeredOverlappedSound">
-   <Name>reversing_beep_rtol</Name>
-   <Header>
-    <Flags value="0x1800C004" />
-    <Volume value="65336" />
-    <DopplerFactor value="10" />
-    <Category>vehicles_horns</Category>
-    <Unk22 value="25" />
-    <Unk23 value="50" />
-   </Header>
-   <UnkShort0 value="5" />
-   <UnkShort1 value="0" />
-   <UnkShort2 value="500" />
-   <UnkShort3 value="0" />
-   <ParameterHash0 />
-   <ParameterHash1 />
-   <AudioHash0 />
-   <AudioHash1>reversing_beep</AudioHash1>
-   <AudioHash2 />
-  </Item>
+
+<Item type="RetriggeredOverlappedSound">
+ <Name>reversing_beep_rtol</Name>
+ <Header>
+  <Flags value="0x1800C004" />
+  <Volume value="65336" />
+  <DopplerFactor value="10" />
+  <Category>vehicles_horns</Category>
+  <Unk22 value="25" />
+  <Unk23 value="50" />
+ </Header>
+ <UnkShort0 value="5" />
+ <UnkShort1 value="0" />
+ <UnkShort2 value="500" />
+ <UnkShort3 value="0" />
+ <ParameterHash0 />
+ <ParameterHash1 />
+ <AudioHash0 />
+ <AudioHash1>reversing_beep</AudioHash1>
+ <AudioHash2 />
+</Item>
+
+Below, "timer_10s_rtol" plays "timer_short_env" 9 times, with 1 second delay each, and then plays "timer_long_env" once.
+
+<Item type="RetriggeredOverlappedSound">
+ <Name>timer_10s_rtol</Name>
+ <Header>
+  <Flags value="0x00008000" />
+  <Category>frontend_game_loud</Category>
+ </Header>
+ <UnkShort0 value="10" />
+ <UnkShort1 value="0" />
+ <UnkShort2 value="1000" />
+ <UnkShort3 value="0" />
+ <ParameterHash0 />
+ <ParameterHash1 />
+ <AudioHash0 />
+ <AudioHash1>timer_short_env</AudioHash1>
+ <AudioHash2>timer_long_env</AudioHash2>
+</Item>
