@@ -28,14 +28,14 @@ UnkData - Operations - Item list of operation(s)
 		13 = Sin
 		14 = Cos
 		15 = SquareRoot
-		16 = DBToLinear //dB = decibel?
-		17 = LinearToDB //dB = decibel?
+		16 = DBToLinear
+		17 = LinearToDB
 		18 = PitchToRatio
 		19 = RatioToPitch
 		20 = GetTime
 		21 = Fsel //FloatingPointSelect
 		22 = ValueInRange
-		23 = Clamp //Clams range
+		23 = Clamp //Clamps range
 		24 = Pow //PowerOf
 		25 = Round //round up/down?
 		26 = ScaledSin //?
@@ -76,22 +76,69 @@ Below is a list of the formulas each of the operation types use. Certain operati
 	output = input1
 	
 5 = Mod //?
+    if (input2 != 0.0)
+        output = fmodf(input1, input2)
+    else
+        output = 0.0
+		
 6 = Min
+    if (input1 >= input2)
+        output = input2
+    else
+        output = input1
+		
 7 = Max
-8 = Abs (absolute value)
-9 = Sign //positive/negative?
-10 = Floor //greatest integer less than or equal to the input
-11 = Ceil //smallest integer greater than or equal to the input
-12 = Rand (randomized)
-13 = Sin
-14 = Cos
-15 = SquareRoot
-16 = DBToLinear //dB = decibel?
-17 = LinearToDB //dB = decibel?
-18 = PitchToRatio
-19 = RatioToPitch
-20 = GetTime
+    if (input1 > input2)
+        output = input1
+    else
+        output = input2
 
+8 = Abs (absolute value)
+    if (input1 < 0.0)
+        output = -input1
+    else
+        output = input1
+		
+9 = Sign //positive/negative?
+    if (input1 < 0.0)
+        output = -1.0
+    else if (input1 == 0.0)
+        output = 0.0
+    else
+        output = 1.0
+
+10 = Floor //greatest integer less than or equal to the input
+    output = floorf(input1)
+
+11 = Ceil //smallest integer greater than or equal to the input
+    output = ceilf(input1)
+
+12 = Rand (randomized)
+    output = randValue() * (input2 - input1) + input1 //randValue() returns a random value between 0.0 and 1.0, input1 = min and input2 = max
+
+13 = Sin
+    output = sinf(input1)
+	
+14 = Cos
+    output = cosf(input1)
+
+15 = SquareRoot
+    output = fsqrt(input1)
+
+16 = DBToLinear
+    if (input1 >= -99.0)
+        output = powf(10.0, input1 / 20.0)
+    else
+        output = 0.0
+
+17 = LinearToDB
+18 = PitchToRatio
+    output = powf(2.0, ((int)input1) / 1200.0)
+
+19 = RatioToPitch
+    output = (int)((log10f(input1) * 3.321928) * 1200.0)
+	
+20 = GetTime
 21 = Fsel //FloatingPointSelect
 	if (input1 >= 0.0)
 		output = input2;
@@ -102,15 +149,64 @@ Below is a list of the formulas each of the operation types use. Certain operati
 	output = ((input3 - input2) * input1) + input2
 	
 23 = Clamp //Clams range
+    if ( input1 < input2 )
+        output = input2
+    else if ( input1 <= input3 )
+        output = input1
+    else
+        output = input3
+
 24 = Pow //PowerOf
+    output = input1 ^ input2 //returns the base input1 to the power of exponential input2
+
 25 = Round //round up/down?
+    output = roundf(input1)
+
 26 = ScaledSin //?
+    output = (sinf((input1 * 2.0) * 3.1415927) + 1.0) * 0.5
+
 27 = ScaledTri //?
+      float temp = (input1 - floorf(input1)) - 0.5
+      if ( temp < 0.0 )
+        output = (input1 - floorf(input1)) * 2.0
+      else
+        output = 1.0 - (temp * 2.0)
+
 28 = ScaledSaw //?
+      output = input1 - floorf(input1)
+
 29 = ScaledSquare //?
+    if (((input1 - floorf(input1)) - 0.5) < 0.0 )
+        output = 1.0
+    else
+        output = 0.0
+
 30 = Smooth //?
+    float temp1, temp2
+    temp1 = input2 - input1
+    if (temp1 > 0.0 )
+        temp2 = 1.0
+    else if (temp1 == 0.0)
+        temp2 = 0.0
+    else
+        temp2 = -1.0
+
+    if ( temp1 < 0.0 )
+        temp1 = -temp1
+    if ( temp1 >= input3 )
+        temp1 = input3
+
+    output = input2 - (temp1 * temp2);
+
 31 = GetScaledTime //?
 32 = ClampRange //?
+    if ( input1 > input2 && input1 < input3 )
+        output = (input1 - input2) / (input3 - input2)
+    else if ( input1 >= input3 )
+        output = 1.0
+    else
+        output = 0.0
+
 33 = GetPositionX
 34 = GetPositionY
 35 = GetPositionZ	
