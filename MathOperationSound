@@ -132,6 +132,12 @@ Below is a list of the formulas each of the operation types use. Certain operati
         output = 0.0
 
 17 = LinearToDB
+if (input1 < 0.00001)
+    output = -100.0
+else
+    output = log10f(input1) * 20.0
+	
+	
 18 = PitchToRatio
     output = powf(2.0, ((int)input1) / 1200.0)
 
