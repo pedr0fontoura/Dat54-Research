@@ -77,7 +77,7 @@ Below is a list of the formulas each of the operation types use. Certain operati
 	
 5 = Mod //?
     if (input2 != 0.0)
-        output = fmodf(input1, input2)
+        output = fmodf(input1, input2) //input1 minus the biggest multiple of input2 which is less than or equal to input1 (eg fmodf(9,3) = 0)
     else
         output = 0.0
 		

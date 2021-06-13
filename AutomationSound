@@ -4,9 +4,9 @@ MIDIs are used to handle what would otherwise be complex sound arrangements. The
 
 Fields:
 
-UnkFloat0 - float value - Unknown //spacing? rate?
-UnkFloat1 - float value - Unknown.
-ParameterHash - metahash - Parameters.
+UnkFloat0 - float value - PlaybackRate
+UnkFloat1 - float value - PlaybackRateVariance.
+ParameterHash - metahash - PlaybackRateParameter //overrides PlaybackRate
 AudioHash1 - metahash - Map //maps sounds/insturments to MIDI note range(s)
 WaveSlotId - metahash - File location.
 UnkHash1 - metahash - File name. //the midi file itself.
