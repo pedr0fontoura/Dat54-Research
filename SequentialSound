@@ -4,6 +4,8 @@ The data contains a list of AudioTracks which refer to other sound entries. The 
 
 Delay can be achived by using other entry types on the individual items rather than on the SequentialSound entry itself.
 
+The maximum number of child sounds in a sequence is 32.
+
 Fields:
 
 AudioTracks - item list of child sounds. //could name "Sequence"?

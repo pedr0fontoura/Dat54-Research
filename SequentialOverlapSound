@@ -6,6 +6,8 @@ The data contains a list of AudioTracks which refer to each sound played in sequ
 
 Like the RetriggeredOverlappedSound, delay is the amount of duration into play the sound is played before next sound is played. For example, if the delay is defined as 500ms, the second sound will be played 500ms into the first sound's play, and the third sound will be played 500ms into the second sound's play. The sounds will play their full length when played in the sequence. If the sound is less than the delay, there will be a delay of silence.
 
+The maximum number of child sounds in a sequence is 32.
+
 Fields:
 
 UnkShort - ushort value - Delay - the delay of each sound in the sequence.  If this value is set to 0, all sounds will be played on top of each other, creating amplitude. This will affect all sounds in the sequence.
