@@ -15,7 +15,7 @@ UnkData - Maps - Item list of mappings
 It is important to note that the NoteMin value will transpose the MIDI about middle C (C3 - note 32) according to the value you set it at. 
 For example, if the minimum note of your preferred range is note 37, setting a value of 37 will transpose the tune by 5 semi-tones (37-32 = 5). 
 To correct the resulting pitch change of transposing, the note defined in the AudioTrack should have an opposing pitch change value which should correspond with the number of semi-tones.
-For example, a transpose of +5 semi-tones should = -500, or 65036 pitch value to cancel out the change in pitch.)
+For example, a transpose of +5 semi-tones should = -500, or 65035 pitch value to cancel out the change in pitch.)
 
 Example:
 
