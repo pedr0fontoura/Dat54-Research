@@ -1,18 +1,27 @@
 The "Unknown" (_map) sound type is used to map sounds to an AutomationSound type, which uses a MIDI (Musical Instrument Digital Interface) sound. 
 
+The type can have numerous items which define specific note ranges of the MIDI, assigning them instruments or sounds individually.
+
+The mapping will transpose the note range about middle C (C3).
+
 Fields:
 
 UnkData - Maps - Item list of mappings
 	UnkByte0 - byte value - NoteMin - minimum note of this mapping
 	UnkByte1 - byte value - NoteMax - maximum note of this mapping
-	UnkByte2 - byte value - Channel //assigned channel of the MIDI
+	UnkByte2 - byte value - PitchLock - enables or disables single-key pitch change (setting to 1 will result in the entire MIDI playing as middle C (C3 - note 32), regardless of note.
 	AudioTrack - metahash - Sound to play on this mapping.
+
+It is important to note that the NoteMin value will transpose the MIDI about middle C (C3 - note 32) according to the value you set it at. 
+For example, if the minimum note of your preferred range is note 37, setting a value of 37 will transpose the tune by 5 semi-tones (37-32 = 5). 
+To correct the resulting pitch change of transposing, the note defined in the AudioTrack should have an opposing pitch change value which should correspond with the number of semi-tones.
+For example, a transpose of +5 semi-tones should = -500, or 65036 pitch value to cancel out the change in pitch.)
 
 Example:
 
 Below, "merry_christmas_01_map" has two mappings:
-	- notes 0 to 60 (C1 to C4) are assigned channel 1, playing a jingle sound.
-	- notes 61 to 128 (D4 to G10) are assigned channel 0, playing an organ synth sound.
+	- notes 0 to 60 (C1 to C4) are assigned a jingle sound. These do not change pitch regardless of the MIDI notes.
+	- notes 61 to 128 (D4 to G10) are assigned an organ sound.
 
 <Item type="Unknown">
  <Name>merry_christmas_01_map</Name>
