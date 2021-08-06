@@ -4,6 +4,10 @@ Scripts call for the soundset, and then define the specific "script sound" to pl
 
 The data contains a list of items which refer to each script name and sound. Script names are pre-defined.
 
+The order of items is in ScriptName hash alphanumeric order, for example, below, "stopsound" = 0x216A24CE (item 1), and "motorloop" = 0xD15B9729 (item 2).
+
+It is important that individual sounds which are called for through a SoundSet in scripts use any of the "scripted" categories, for example, "scripted_louder".
+
 Fields:
 
 ScriptName - metahash - the script name called for in the script native.
